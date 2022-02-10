@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game | Challenge</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+
+            visibility: hidden;
+            opacity: 0;
+        }
+
+
+        button{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+
+            background-color: dodgerblue;
+            padding: 2rem 4rem;
+            outline: none;
+            border: none;
+            text-align: center;
+            font-size: 2rem;
+
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <button class="start-game">Start Game</button>
+
+    <img src="./app.gif" alt="target_game" class="target">
+
+    <script>
+        const targetApp = document.querySelector('.target');
+        const startBtn = document.querySelector('.start-game');
+
+
+        startBtn.addEventListener('click', (event) => {
+
+            alert('Note: You have to chase down the funny guy and click on it.')
+            document.querySelector('.start-game').style.display = 'none';
+            targetApp.setAttribute('style', 'visibility: visible; opacity:1');
+        });
+
+        targetApp.addEventListener('mouseover', startGame);
+
+           function startGame (event) {
+              
+            const targetHeight = Math.floor(Math.random() * innerHeight);
+            const targetWidth = Math.floor(Math.random() * innerWidth);
+
+            targetApp.style.left = `${targetHeight}px`;
+            targetApp.style.top = `${targetWidth}px`;
+
+
+            event.preventDefault();
+            return true;
+        };
+
+
+        targetApp.addEventListener('click', (event) => {
+
+
+            alert('You Won | You clicked Me')
+            event.preventDefault();
+            return true;
+        });
+
+    </script>
+</body>
+</html>
