@@ -51,41 +51,52 @@
     <img src="./app.gif" alt="target_game" class="target">
 
     <script>
-        const targetApp = document.querySelector('.target');
-        const startBtn = document.querySelector('.start-game');
+            (function() {
+                const targetApp = document.querySelector('.target');
+                const startBtn = document.querySelector('.start-game');
 
 
-        startBtn.addEventListener('click', (event) => {
+                startBtn.addEventListener('click', (event) => {
 
-            alert('Note: You have to chase down the funny guy and click on it.')
-            document.querySelector('.start-game').style.display = 'none';
-            targetApp.setAttribute('style', 'visibility: visible; opacity:1');
-        });
+                    alert('Note: You have to chase down the funny guy and click on it.')
+                    document.querySelector('.start-game').style.display = 'none';
+                    targetApp.setAttribute('style', 'visibility: visible; opacity:1');
+                });
 
-        targetApp.addEventListener('mouseover', startGame);
+                targetApp.addEventListener('mouseover', startGame);
 
-           function startGame (event) {
-              
-            const targetHeight = Math.floor(Math.random() * innerHeight);
-            const targetWidth = Math.floor(Math.random() * innerWidth);
+                function startGame (event) {
+                    
+                    const targetHeight = Math.floor(Math.random() * innerHeight);
+                    const targetWidth = Math.floor(Math.random() * innerWidth);
 
-            targetApp.style.left = `${targetHeight}px`;
-            targetApp.style.top = `${targetWidth}px`;
-
-
-            event.preventDefault();
-            return true;
-        };
+                    targetApp.style.left = `${targetHeight}px`;
+                    targetApp.style.top = `${targetWidth}px`;
 
 
-        targetApp.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    return true;
+                };
 
 
-            alert('You Won | You clicked Me')
-            event.preventDefault();
-            return true;
-        });
+                targetApp.addEventListener('click', (event) => {
+                    
+                    alert('You Won | You clicked Me')
+                    event.preventDefault();
+                    return true;
+                });
 
+
+                document.addEventListener('keypress', (event) => {
+                    if(event.key === 'q') {
+                        if(confirm('Are you sure, to left this game')) {
+                            document.querySelector('body').innerHTML = `<h1>Sorry, Game over!!!</h1>`
+                        }
+                    }
+                    event.preventDefault();
+                    return true;
+                });
+            })();
     </script>
 </body>
 </html>
