@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game | Challenge</title>
     <style>
+
+
         *{
             margin: 0;
             padding: 0;
@@ -43,13 +45,15 @@
         }
 
 
+
+
     </style>
 </head>
 <body>
-    <button class="start-game">Start Game</button>
-
-    <img src="./app.gif" alt="target_game" class="target">
-
+    <div class="game-box">
+        <button class="start-game">Start Game</button>
+        <img src="./app.gif" alt="target_game" class="target">
+    </div>
     <script>
             (function() {
                 const targetApp = document.querySelector('.target');
@@ -66,7 +70,7 @@
                 targetApp.addEventListener('mouseover', startGame);
 
                 function startGame (event) {
-                    
+
                     const targetHeight = Math.floor(Math.random() * innerHeight);
                     const targetWidth = Math.floor(Math.random() * innerWidth);
 
@@ -80,7 +84,7 @@
 
 
                 targetApp.addEventListener('click', (event) => {
-                    
+
                     alert('You Won | You clicked Me')
                     event.preventDefault();
                     return true;
