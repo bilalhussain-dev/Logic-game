@@ -44,6 +44,23 @@
             cursor: pointer;
         }
 
+        #play-again {
+            background-color: goldenrod;
+            color: #fff;
+            text-align: center;
+        }
+
+        .winner {
+            width: 50%;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .winner h1 {
+            color: rgb(24, 194, 24);
+            text-align: center;
+        }
+
 
 
 
@@ -85,7 +102,13 @@
 
                 targetApp.addEventListener('click', (event) => {
 
-                    alert('You Won | You clicked Me')
+
+                    document.body.innerHTML = `
+                       <div class="winner">
+                        <h1>You Won! Completed the challange.</h1>
+                        <button class="start-game" id="play-again">Play Again</button>
+                       </div>
+                    `;
                     event.preventDefault();
                     return true;
                 });
